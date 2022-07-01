@@ -24,32 +24,30 @@ limitations under the License.
 
 > Set the more significant 32 bits of a [double-precision floating-point number][ieee754].
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/number-float64-base-set-high-word
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm` branch][esm-url].
+-   If you are using Deno, visit the [`deno` branch][deno-url].
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd` branch][umd-url].
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
-To use in Observable,
-
 ```javascript
-setHighWord = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/number-float64-base-set-high-word@umd/bundle.js' )
-```
-
-To include the bundle in a webpage,
-
-```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/number-float64-base-set-high-word@umd/bundle.js"></script>
-```
-
-If no recognized module system is present, access bundle contents via the global scope:
-
-```html
-<script type="text/javascript">
-(function () {
-    window.setHighWord;
-})();
-</script>
+var setHighWord = require( '@stdlib/number-float64-base-set-high-word' );
 ```
 
 #### setHighWord( x, high )
@@ -81,17 +79,12 @@ y = setHighWord( PINF, high ); // => 0 01111111111 00000000000000000000000000000
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-pow@umd/bundle.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-round@umd/bundle.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-base-randu@umd/bundle.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/constants-uint32-max@umd/bundle.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/number-float64-base-set-high-word@umd/bundle.js"></script>
-<script type="text/javascript">
-(function () {
+```javascript
+var pow = require( '@stdlib/math-base-special-pow' );
+var round = require( '@stdlib/math-base-special-round' );
+var randu = require( '@stdlib/random-base-randu' );
+var MAX_UINT32 = require( '@stdlib/constants-uint32-max' );
+var setHighWord = require( '@stdlib/number-float64-base-set-high-word' );
 
 var high;
 var frac;
@@ -111,11 +104,6 @@ for ( i = 0; i < 100; i++ ) {
     y = setHighWord( x, high );
     console.log( 'x: %d. new high word: %d. y: %d.', x, high, y );
 }
-
-})();
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -124,7 +112,94 @@ for ( i = 0; i < 100; i++ ) {
 
 <!-- C interface documentation. -->
 
+* * *
 
+<section class="c">
+
+## C APIs
+
+<!-- Section to include introductory text. Make sure to keep an empty line after the intro `section` element and another before the `/section` close. -->
+
+<section class="intro">
+
+</section>
+
+<!-- /.intro -->
+
+<!-- C usage documentation. -->
+
+<section class="usage">
+
+### Usage
+
+```c
+#include "stdlib/number/float64/base/set_high_word.h"
+```
+
+#### stdlib_base_float64_set_high_word( high, \*x )
+
+Sets the more significant 32 bits of a double-precision floating-point number.
+
+```c
+#include <stdint.h>
+
+uint32_t high = 1074339512;
+double x = 0.0;
+
+stdlib_base_float64_set_high_word( high, &x );
+```
+
+The function accepts the following arguments:
+
+-   **high**: `[in] uint32_t` higher order word.
+-   **x**: `[in-out] double*` reference to (and destination for) a double-precision floating-point number.
+
+```c
+void stdlib_base_float64_set_high_word( const uint32_t high, double *x );
+```
+
+</section>
+
+<!-- /.usage -->
+
+<!-- C API usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
+
+<section class="notes">
+
+</section>
+
+<!-- /.notes -->
+
+<!-- C API usage examples. -->
+
+<section class="examples">
+
+### Examples
+
+```c
+#include "stdlib/number/float64/base/set_high_word.h"
+#include <stdint.h>
+#include <stdio.h>
+
+int main() {
+    uint32_t high[] = { 1074339512, 1074339513, 1074339514, 1074339515 };
+    double x = 3.14;
+
+    int i;
+    for ( i = 0; i < 4; i++ ) {
+        stdlib_base_float64_set_high_word( high[ i ], &x );
+        printf( "high: %u => %lf\n", high[ i ], x );
+    }
+}
+```
+
+</section>
+
+<!-- /.examples -->
+
+</section>
+
+<!-- /.c -->
 
 <!-- Section for related `stdlib` packages. Do not manually edit this section, as it is automatically populated. -->
 
@@ -199,6 +274,7 @@ Copyright &copy; 2016-2022. The Stdlib [Authors][stdlib-authors].
 [deno-url]: https://github.com/stdlib-js/number-float64-base-set-high-word/tree/deno
 [umd-url]: https://github.com/stdlib-js/number-float64-base-set-high-word/tree/umd
 [esm-url]: https://github.com/stdlib-js/number-float64-base-set-high-word/tree/esm
+[branches-url]: https://github.com/stdlib-js/number-float64-base-set-high-word/blob/main/branches.md
 
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/number-float64-base-set-high-word/main/LICENSE
 
