@@ -42,7 +42,7 @@ limitations under the License.
 ## Usage
 
 ```javascript
-import setHighWord from 'https://cdn.jsdelivr.net/gh/stdlib-js/number-float64-base-set-high-word@deno/mod.js';
+import setHighWord from 'https://cdn.jsdelivr.net/gh/stdlib-js/number-float64-base-set-high-word@v0.2.0-deno/mod.js';
 ```
 
 #### setHighWord( x, high )
@@ -79,7 +79,7 @@ import pow from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-pow@den
 import round from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-round@deno/mod.js';
 import randu from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-randu@deno/mod.js';
 import MAX_UINT32 from 'https://cdn.jsdelivr.net/gh/stdlib-js/constants-uint32-max@deno/mod.js';
-import setHighWord from 'https://cdn.jsdelivr.net/gh/stdlib-js/number-float64-base-set-high-word@deno/mod.js';
+import setHighWord from 'https://cdn.jsdelivr.net/gh/stdlib-js/number-float64-base-set-high-word@v0.2.0-deno/mod.js';
 
 var high;
 var frac;
